@@ -7,13 +7,21 @@ class Student {
     this.age = a;
     this.gpa = g;
   }
+  @override
+  String toString(){
+    return 'User(name: $name, age: $age, gpa: $gpa)';
+  }
+  String toJson(){
+    return '{"name": "$name", "age": $age, "gpa": $gpa}';
+  }
   bool hasHonors(){
     return (this.gpa >= 3.5);
   }
 }
 
 main(List<String> args) {
-  Student me = Student("hola", 22, 3.0);
-  print(me.gpa);
+  final me = Student("hola", 22, 3.0);
+  print(me);
+  print(me.toJson());
   print(me.hasHonors());
 }
